@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAIN PAGE</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  /* height: 300px; Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+<center><h1>Welcome to Optimus Prime!</h1></center>
+
+  <center>
+  <div class="row">
+      <div class="column" style="background-color:#FFCC66;">
+        <h2>Organisation Login</h2>
+        <p>
+          <a href={% url 'organisation_signup' %}>Organisation SignUp</a><br><br>
+          <a href={% url 'organisation_login' %}>Organisation Login</a><br><br>
+        </p>
+      </div>
+      <div class="column" style="background-color:#90EE90 ;">
+        <h2>Employee Login</h2>
+        <p>
+          <a href={% url 'employee_signup' %}>Employee SignUp</a><br><br>
+          <a href={% url 'employee_login' %}>Employee Login</a><br><br>
+        </p>
+      </div>
+  </div>
+  </center> 
+</body>
+</html>
