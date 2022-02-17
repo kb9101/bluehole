@@ -1,3 +1,4 @@
+import email
 from tkinter.messagebox import RETRY
 from django.http import HttpResponse
 from organisation.models import Organisation
@@ -32,21 +33,25 @@ def organisation_signup(request):
 
 def organisation_registration(request):
     if request.POST:
-        name = request.POST['Name']
-        company_email = request.POST['Email']
-        password = request.POST['Password']
-        contact_number = request.POST['Contact_Number']
-        logo = request.POST['Logo']
-        industry = request.POST['Industry']
-        display_name = request.POST['Display_Name']
-        description = request.POST['Description']
-        country = request.POST['Country']
-        city = request.POST['City']
-        website = request.POST['Website']
-        obj = Organisation(name=name, company_email=company_email, password=password, contact_number=contact_number, logo=logo, industry=industry, display_name=display_name, description=description, country=country, city=city, website=website)
-        obj.save()
-        messages.success(request,"Organisation Registration Successful!")
-        return redirect('organisation_login')
+        name = request.POST['name']
+        company_email = request.POST['email']
+        password = request.POST['password']
+        contact_number = request.POST['contact_number']
+        logo = request.POST['logo']
+        industry = request.POST['industry']
+        display_name = request.POST['display_name']
+        description = request.POST['description']
+        country = request.POST['country']
+        city = request.POST['city']
+        website = request.POST['website']
+        if Organisation.objects.filter(company_email=company_email).exists():
+            messages.warning(request, 'Email Already Exists!')
+            return redirect('organisation_signup')
+        else:
+            obj = Organisation(name=name, company_email=company_email, password=password, contact_number=contact_number, logo=logo, industry=industry, display_name=display_name, description=description, country=country, city=city, website=website)
+            obj.save()
+            messages.success(request,"Organisation Registration Successful!")
+            return redirect('organisation_login')
 
     return render(request, 'organisation_signup.html')
 
@@ -58,3 +63,21 @@ def organisation_home(request):
 def organisation_logout(request):
     del request.session['IS_LOGIN']
     return redirect('organisation_login')
+
+def blocks(request):
+    return render(request, 'blocks.html')
+
+def cards(request):
+    return render(request, 'cards.html')
+
+def carousels(request):
+    return render(request, 'carousels.html')
+
+def forms(request):
+    return render(request, 'forms.html')
+
+def people(request):
+    return render(request, 'people.html')
+
+def pricing(request):
+    return render(request, 'pricing.html') 

@@ -15,6 +15,14 @@ urlpatterns = [
     path('organisation_registration/', organisation.views.organisation_registration, name='organisation_registration'),
     path('organisation_logout/', organisation.views.organisation_logout, name='organisation_logout'),
     path('organisation_home/', organisation.views.organisation_home, name='organisation_home'),
+    path('blocks/', organisation.views.blocks, name='blocks'),
+    path('cards/', organisation.views.cards, name='cards'),
+    path('carousels/', organisation.views.carousels, name='carousels'),
+    path('forms/', organisation.views.forms, name='forms'),
+    path('people/', organisation.views.people, name='people'),
+    path('pricing/', organisation.views.pricing, name='pricing'),
+    
+    
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
