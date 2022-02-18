@@ -24,7 +24,7 @@
 
     <!-- logo start -->
     <div class="logo">
-      <h1><a href="{% url 'organisation_home' %}">Collective</a></h1>
+      <h1><a href="{% url 'home' %}">Collective</a></h1>
     </div>
 
   <!-- if logo is image enable this -->
@@ -37,7 +37,7 @@
     <!-- //image logo -->
 
     <div class="logo-icon text-center">
-      <a href="{% url 'organisation_home' %}" title="logo"><img src="{ static 'images/logo.png' " alt="logo-icon"> </a>
+      <a href="{% url 'home' %}" title="logo"><img src="{ static 'images/logo.png' " alt="logo-icon"> </a>
     </div>
     <!-- //logo end -->
 
@@ -45,7 +45,7 @@
 
       <!-- sidebar nav start -->
       <ul class="nav nav-pills nav-stacked custom-nav">
-        <li><a href="{% url 'organisation_home' %}"><i class="fa fa-tachometer"></i><span> Dashboard</span></a>
+        <li><a href="{% url 'home' %}"><i class="fa fa-tachometer"></i><span> Dashboard</span></a>
         </li>
         <li class="menu-list">
           <a href="#"><i class="fa fa-cogs"></i>
@@ -189,7 +189,7 @@
                   <li> <a href="#"><i class="lnr lnr-users"></i>1k Followers</a> </li>
                   <li> <a href="#"><i class="lnr lnr-cog"></i>Setting</a> </li>
                   <li> <a href="#"><i class="lnr lnr-heart"></i>100 Likes</a> </li>
-                  <li class="logout"> <a href="{% url 'organisation_login' %}"><i class="fa fa-power-off"></i> Logout</a> </li>
+                  <li class="logout"> <a href="{% url 'login' %}"><i class="fa fa-power-off"></i> Logout</a> </li>
                 </ul>
               </li>
             </ul>
@@ -209,7 +209,7 @@
     <!-- breadcrumbs -->
     <nav aria-label="breadcrumb" class="mb-4">
       <ol class="breadcrumb my-breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'organisation_home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Pricing Tables</li>
       </ol>
     </nav>
@@ -245,7 +245,7 @@
                       <li>Help center access</li>
                     </ul>
                     <div class="mt-4">
-                      <a href="{% url 'organisation_signup' %}" class="btn btn-lg btn-outline-primary btn-style border-btn">Sign up for
+                      <a href="{% url 'signup' %}" class="btn btn-lg btn-outline-primary btn-style border-btn">Sign up for
                         free</a>
                     </div>
                   </div>

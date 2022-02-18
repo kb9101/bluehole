@@ -130,8 +130,20 @@ STATICFILES_DIRS =[os.path.join(BASE_DIR,'organisation/static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 MEDIA_URL = '/images/'
+# Sending Email in Python Django when new user registers
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dev.kush.bhatia@gmail.com'#sender's email-id
+EMAIL_HOST_PASSWORD = 'Dev.kush.bhatia@9101' #password associated with above email-id
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
