@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Collective Admin Panel a Flat Bootstrap Responsive Website Template | Pricing :: W3Layouts</title>
+  <titlePricing</title>
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
@@ -37,7 +37,7 @@
     <!-- //image logo -->
 
     <div class="logo-icon text-center">
-      <a href="{% url 'home' %}" title="logo"><img src="{ static 'images/logo.png' " alt="logo-icon"> </a>
+      <a href="{% url 'home' %}" title="logo"><img src="{% static 'images/logo.png' %}" alt="logo-icon"> </a>
     </div>
     <!-- //logo end -->
 
@@ -185,11 +185,9 @@
                     <h5 class="user-name">John Deo</h5>
                     <span class="status ml-2">Available</span>
                   </li>
-                  <li> <a href="#"><i class="lnr lnr-user"></i>My Profile</a> </li>
-                  <li> <a href="#"><i class="lnr lnr-users"></i>1k Followers</a> </li>
-                  <li> <a href="#"><i class="lnr lnr-cog"></i>Setting</a> </li>
-                  <li> <a href="#"><i class="lnr lnr-heart"></i>100 Likes</a> </li>
-                  <li class="logout"> <a href="{% url 'login' %}"><i class="fa fa-power-off"></i> Logout</a> </li>
+                  <li> <a href="{% url 'my_profile' %}"><i class="lnr lnr-user"></i>My Profile</a> </li>
+                  <li> <a href="{% url 'settings' %}"><i class="lnr lnr-cog"></i>Settings</a> </li>
+                  <li class="logout"> <a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout</a> </li>
                 </ul>
               </li>
             </ul>

@@ -1,5 +1,4 @@
-from django.core.mail import EmailMessage
-from email.message import EmailMessage
+import imp
 from tkinter.messagebox import RETRY
 from django.http import HttpResponse
 from organisation.models import Organisation
@@ -9,6 +8,7 @@ from django.contrib.sessions.models import Session
 from organisation.views import *
 from django.conf import settings
 from django.core.mail import send_mail
+from .models import Organisation
 
 # Create your views here.
 
@@ -99,3 +99,10 @@ def people(request):
 
 def pricing(request):
     return render(request, 'pricing.html') 
+
+def my_profile(request):
+    details = Organisation.objects.all()
+    return render(request, 'my_profile.html', {'details':details})
+
+def settings(request):
+    return render(request, 'settings.html')

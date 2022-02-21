@@ -21,6 +21,9 @@ urlpatterns = [
     path('forms/', organisation.views.forms, name='forms'),
     path('people/', organisation.views.people, name='people'),
     path('pricing/', organisation.views.pricing, name='pricing'),
+    path('my_profile/', organisation.views.my_profile, name='my_profile'),
+    path('settings/', organisation.views.settings, name='settings'),
+
     
     
 
