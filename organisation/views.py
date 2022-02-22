@@ -1,4 +1,5 @@
 import imp
+from multiprocessing import context
 from tkinter.messagebox import RETRY
 from django.http import HttpResponse
 from organisation.models import Organisation
@@ -9,6 +10,7 @@ from organisation.views import *
 from django.conf import settings
 from django.core.mail import send_mail
 from .models import Organisation
+from employee import models
 
 # Create your views here.
 
@@ -97,12 +99,22 @@ def forms(request):
 def people(request):
     return render(request, 'people.html')
 
-def pricing(request):
-    return render(request, 'pricing.html') 
+def employee_data(request):
+    employee = models.Employee.objects.all()
+    return render(request, 'employee_data.html', {'employee':employee})
 
 def my_profile(request):
-    details = Organisation.objects.all()
+    company_email = request.session.get('company_email')
+    details = Organisation.objects.filter(company_email = 'kushbhatia@gmail.com')
     return render(request, 'my_profile.html', {'details':details})
 
 def settings(request):
     return render(request, 'settings.html')
+
+def edit_employee_data(request, id):
+    employee = models.Employee.objects.get(id=id)
+    return render(request, 'edit_employee_data.html', {'employee':employee})
+
+def update_employee_data(request, id):
+    employee = models.Employee.objects.get(id=id)
+    return render(request, 'edit_employee_data.html', {'employee':employee})

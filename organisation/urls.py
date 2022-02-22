@@ -1,10 +1,12 @@
 
+from os import name
 from django.conf import settings
 from django.urls import path
 from django.contrib import admin
 
 from django.conf.urls.static import static
 import organisation.views
+from employee import models 
 
 
 
@@ -20,9 +22,10 @@ urlpatterns = [
     path('carousels/', organisation.views.carousels, name='carousels'),
     path('forms/', organisation.views.forms, name='forms'),
     path('people/', organisation.views.people, name='people'),
-    path('pricing/', organisation.views.pricing, name='pricing'),
+    path('employee_data/', organisation.views.employee_data, name='employee_data'),
     path('my_profile/', organisation.views.my_profile, name='my_profile'),
     path('settings/', organisation.views.settings, name='settings'),
+    path('edit_employee_data/<int:id>',organisation.views.edit_employee_data, name='edit_employee_data'),
 
     
     
