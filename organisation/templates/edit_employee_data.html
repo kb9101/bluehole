@@ -1,4 +1,4 @@
-<form method="POST" action="/update/{{ employee.id }}">
+<!-- <form method="POST" action="/update_employee_data/{{ employee.id }}">
     {% csrf_token %}
     <table>
         <tr><td><input name="name" required value="{{ employee.name }}"></td></tr>
@@ -9,4 +9,45 @@
         <tr><td><input name="city" required value="{{ employee.city }}"></td></tr>
         <tr><td><button type="submit">update</button></td></tr>
     </table>
-</form>
+</form> -->
+{% load static %}
+
+
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Edit Employee</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="card card_border py-2 mb-4">
+        <div class="cards__heading">
+    <div class="form-group">
+            <form method="POST" action="/update_employee_data/{{ employee.id }}">
+                {% csrf_token %}
+                <table>
+                    <tr><td><input name="name" required value="{{ employee.name }}"></td></tr>
+                    <tr><td><input name="email" required value="{{ employee.email }}"></td></tr>
+                    <tr><td><input name="password" required value="{{ employee.password }}"></td></tr>
+                    <tr><td><input name="contact_number" required value="{{ employee.contact_number }}"></td></tr>
+                    <tr><td><input name="country" required value="{{ employee.country }}"></td></tr>
+                    <tr><td><input name="city" required value="{{ employee.city }}"></td></tr>
+                    <center><tr><td><button type="submit">update</button></td></tr></center>
+                </table>
+            </form>
+        </div> 
+        </div>
+        </div>
+</body>
+
+</html>

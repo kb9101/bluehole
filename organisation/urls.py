@@ -25,7 +25,12 @@ urlpatterns = [
     path('employee_data/', organisation.views.employee_data, name='employee_data'),
     path('my_profile/', organisation.views.my_profile, name='my_profile'),
     path('settings/', organisation.views.settings, name='settings'),
-    path('edit_employee_data/<int:id>',organisation.views.edit_employee_data, name='edit_employee_data'),
+    path('employee_data/edit_employee_data/<int:id>',organisation.views.edit_employee_data, name='edit_employee_data'),
+    path('update_employee_data/<int:id>',organisation.views.update_employee_data, name='update_employee_data'),
+    path('employee_data/delete_employee_data/<int:id>',organisation.views.delete_employee_data, name='delete_employee_data'),
+    path('employee_data/add_employee_data/',organisation.views.add_employee_data, name='add_employee_data'),
+    path('load_employee_form/',organisation.views.load_employee_form, name='load_employee_form'),
+
 
     
     

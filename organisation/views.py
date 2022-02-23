@@ -1,7 +1,8 @@
-import imp
+import employee
 from multiprocessing import context
 from tkinter.messagebox import RETRY
 from django.http import HttpResponse
+from organisation import employee_forms
 from organisation.models import Organisation
 from django.contrib import messages
 from django.shortcuts import redirect, render
@@ -11,6 +12,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from .models import Organisation
 from employee import models
+from .employee_forms import EmployeeForm
 
 # Create your views here.
 
@@ -117,4 +119,25 @@ def edit_employee_data(request, id):
 
 def update_employee_data(request, id):
     employee = models.Employee.objects.get(id=id)
-    return render(request, 'edit_employee_data.html', {'employee':employee})
+    form = EmployeeForm(request.POST, instance=employee)
+    form.save()
+    return redirect('employee_data')
+
+# add employee start
+
+def load_employee_form(request):
+    form = EmployeeForm
+    return render(request, 'employee_signup.html', {'form':form})
+
+def add_employee_data(request):
+    form = EmployeeForm(request.POST)
+    form.save()
+    return redirect('/employee_data')
+
+# add employee end
+
+
+def delete_employee_data(request, id):
+    employee = models.Employee.objects.get(id=id)
+    employee.delete()
+    return redirect('employee_data')

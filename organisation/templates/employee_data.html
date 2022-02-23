@@ -16,7 +16,10 @@
   <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
 </head>
 
-<body  class="sidebar-menu-collapsed">
+
+
+<body class="sidebar-menu-collapsed">
+
 
   <script type='text/javascript' src=''></script>
   <style>
@@ -28,7 +31,7 @@
 
     body {
       /* background-color: #BBDEFB; */
-       padding: 10px 10px 0 10px 
+      padding: 10px 10px 0 10px;
     }
 
     .container .table thead tr th {
@@ -48,7 +51,7 @@
 
     .container .table tbody tr td {
       padding: 30px 10px;
-      font-weight: 600
+      font-weight: 600;
     }
 
     .btn.btn-primary {
@@ -260,38 +263,58 @@
         </nav>
         <!-- //breadcrumbs -->
       </div>
+      <div class="cards__heading">
+        <h3>Employee Data</h3>
+      </div>
+    
       <!-- //content -->
       <div class="container">
-        <div class="table-responsive">
-          <table class="table text-center">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Contact Number</th>
-                <th>Country</th>
-                <th>City</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for i in employee %}
-              <tr>
-                <td>{{ i.name }}</td>
-                <td>{{ i.email }}</td>
-                <td>{{ i.password }}</td>
-                <td>{{ i.contact_number }}</td>
-                <td>{{ i.country }}</td>
-                <td>{{ i.city }}</td>
+        <div class="cards__heading">
+          <center>
+            <a href="{% url 'load_employee_form'  %}">Add Data</a>
+          </center>
+        </div>
+        
 
-                <!-- <td><a href="edit_employee_data/{{ i.id }}">Edit</a></td>
-                <td><a href="delete/{{ i.id }}">Delete</a></td> -->
-              </tr>
-              {% endfor %}
-              </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="table-responsive">
+          <div class="card card_border p-lg-5 p-3 mb-4">
+            <div class="card-body py-3 p-0">
+
+              <table class="table text-center">
+
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Contact Number</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in employee %}
+                  <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.password }}</td>
+                    <td>{{ i.contact_number }}</td>
+                    <td>{{ i.country }}</td>
+                    <td>{{ i.city }}</td>
+
+                    <td><a href="edit_employee_data/{{ i.id }}">Edit</a></td>
+                    <td><a href="delete_employee_data/{{ i.id }}">Delete</a></td>
+                  </tr>
+                  {% endfor %}
+                  </td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+          </div>
         </div>
       </div>
       <script type='text/javascript'
@@ -386,8 +409,7 @@
 
   <!--footer section start-->
   <footer class="dashboard">
-    <p>&copy 2020 Collective. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank"
-        class="text-primary">W3layouts.</a></p>
+    <p>All Rights Reserved | Design by OP!</p>
   </footer>
   <!--footer section end-->
 

@@ -16,10 +16,13 @@ Including another URLconf
 from organisation import views
 from django.contrib import admin
 from django.urls import include, path
+import organisation
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main, name='main'),
     path('organisation/', include('organisation.urls')),
     path('employee/',  include('employee.urls')),
+    path('update_employee_data/<int:id>',organisation.views.update_employee_data, name='update_employee_data'),
+
     ]

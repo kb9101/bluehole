@@ -25,7 +25,7 @@ def employee_login(request):
     return render(request, 'employee_login.html')
 
 def employee_signup(request):
-    return render(request, 'employee_signup.html')
+    return render(request, 'employee_signup.html') #return render(request, 'employee_signup.html')
 
 
 def employee_registration(request):
@@ -39,10 +39,10 @@ def employee_registration(request):
         obj = Employee(name=name, email=email, password=password,
                        contact_number=contact_number, country=country, city=city)
         obj.save()
-        messages.success(request, "Employee Registration Successful!")
-        return redirect('employee_login')
+        #messages.success(request, "Employee Registration Successful!")
+        return redirect('employee_data') #return redirect('employee_login')
 
-    return render(request, 'employee_signup.html')
+    return render(request, 'employee_signup.html') #return render(request, 'employee_signup.html')
 
 def employee_home(request):
     if request.session.has_key('IS_LOGIN'):
